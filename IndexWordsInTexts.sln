@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndexWordsInTexts", "IndexWordsInTexts\IndexWordsInTexts.csproj", "{231F39C0-7BDF-4CFA-8EEA-96E82115DD40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WordIndexer", "WordIndexer\WordIndexer.csproj", "{29F18672-6C88-441C-9397-EE2CB9C44929}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextIndexSearchAPI", "TextIndexSearchAPI\TextIndexSearchAPI.csproj", "{B46FD91F-B096-41F9-B0A7-96BB90CAF130}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{231F39C0-7BDF-4CFA-8EEA-96E82115DD40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{231F39C0-7BDF-4CFA-8EEA-96E82115DD40}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{231F39C0-7BDF-4CFA-8EEA-96E82115DD40}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{231F39C0-7BDF-4CFA-8EEA-96E82115DD40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29F18672-6C88-441C-9397-EE2CB9C44929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29F18672-6C88-441C-9397-EE2CB9C44929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29F18672-6C88-441C-9397-EE2CB9C44929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29F18672-6C88-441C-9397-EE2CB9C44929}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B46FD91F-B096-41F9-B0A7-96BB90CAF130}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B46FD91F-B096-41F9-B0A7-96BB90CAF130}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B46FD91F-B096-41F9-B0A7-96BB90CAF130}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B46FD91F-B096-41F9-B0A7-96BB90CAF130}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
