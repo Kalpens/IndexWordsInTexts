@@ -5,25 +5,26 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using TextIndexSearchAPI.Interfaces;
 using WordIndexer.Entites;
 using WordIndexer.Logic;
 
 namespace TextIndexSearchAPI.Controllers
 {
-    public class SearcherController : ApiController//, ISearcherController
+    public class SearcherController : ApiController, ISearcherController
     {
-        [HttpGet]
-        public Task<IHttpActionResult> SearchTextsWithString(string searchWord)
+        [HttpPost]
+        public Task<IHttpActionResult> SearchTextsWithString(SearchWords searchWord)
         {
             return Task.Run(() =>
             {
                 var logic = new Searcher();
-                var texts = logic.SearchTextsWithString(searchWord);
+                var texts = logic.SearchTextsWithString(searchWord.SearchWord);
 
                 return (IHttpActionResult)Ok(texts);
             });
         }
-        [HttpGet]
+        [HttpPost]
         public Task<IHttpActionResult> SearchTextsWithList(List<SearchWords> searchWords)
         {
             throw new NotImplementedException();

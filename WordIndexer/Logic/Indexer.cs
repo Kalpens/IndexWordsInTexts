@@ -12,6 +12,8 @@ namespace WordIndexer.Logic
             {
                 using (var db = new SearcherContext())
                 {
+                    //This is alright, it adds text into table, if it has pre attached searchwords, then it also adds them.
+                    //In future it would be nice adding the searchwords to the text before adding text into db
                     db.Texts.Add(text);
                     db.SaveChanges();
                     return true;
@@ -29,6 +31,8 @@ namespace WordIndexer.Logic
             {
                 using (var db = new SearcherContext())
                 {
+                    //This is wrong, it should also establish a connection between text and searchword, 
+                    //not only add it into searchwords table
                     db.SearchWords.Add(searchword);
                     db.SaveChanges();
                     return true;
