@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 using WordIndexer.Entites;
 
-namespace TextIndexSearchAPI
+namespace TextIndexSearchAPI.Interfaces
 {
     public interface ISearcherController
     {

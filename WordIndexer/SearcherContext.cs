@@ -9,6 +9,7 @@ namespace WordIndexer
     public partial class SearcherContext : DbContext
     {
         public SearcherContext()
+        //  : base("name=DefaultConnection")
             : base()
         {
             Configuration.LazyLoadingEnabled = false;

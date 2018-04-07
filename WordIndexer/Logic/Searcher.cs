@@ -16,7 +16,8 @@ namespace WordIndexer.Logic
                 return (from c in db.Texts
                     where c.SearchWords.Contains(c.SearchWords.FirstOrDefault(x => x.SearchWord == searchword))
                     select c)
-                    .Include(texts => texts.SearchWords)
+                    //For now I do not include searchwords, as tey cause endless loop, as they also have words, who also have search words etc..
+                    //.Include(texts => texts.SearchWords)
                     .ToList();
             }
 
