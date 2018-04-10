@@ -13,6 +13,16 @@ namespace TextIndexSearchAPI.Controllers
 {
     public class SearcherController : ApiController, ISearcherController
     {
+        /// <summary>
+        /// Calls Searcher class SearchTextsWithString method
+        /// </summary>
+        /// <param name="searchWord">
+        /// Given searchword with whom texts are searched
+        /// </param>
+        /// <returns>
+        /// HttpActionResult with a list of found texts, 
+        /// if non are found, then returns empty list
+        /// </returns>
         [HttpPost]
         public Task<IHttpActionResult> SearchTextsWithString(SearchWords searchWord)
         {
@@ -24,6 +34,17 @@ namespace TextIndexSearchAPI.Controllers
                 return (IHttpActionResult)Ok(texts);
             });
         }
+        /// <summary>
+        /// Calls Searcher class SearchTextsWithList method
+        /// </summary>
+        /// <param name="searchWords">
+        /// Given list of Searchwords
+        /// </param>
+        /// <returns>
+        /// HttpActionResult with List of strings sorted descending by 
+        /// how many relations they have to provided parameters
+        /// or empty list if non found
+        /// </returns>
         [HttpPost]
         public Task<IHttpActionResult> SearchTextsWithList(List<SearchWords> searchWords)
         {

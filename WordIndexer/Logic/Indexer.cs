@@ -9,6 +9,17 @@ namespace WordIndexer.Logic
 {
     public class Indexer : IIndexer
     {
+        /// <summary>
+        /// Indexes the text into database,
+        /// if contains searchwords, they all are indexed after adding the text to db.
+        /// Updates the existing searchwords to link to this text
+        /// </summary>
+        /// <param name="text">
+        /// Provided text to be indexed
+        /// </param>
+        /// <returns>
+        /// boolean with value depending if text indexing was succesfull
+        /// </returns>
         public bool IndexText(Texts text)
         {
             try
@@ -45,18 +56,30 @@ namespace WordIndexer.Logic
             }
         }
 
+        /// <summary>
+        /// Indexes a searchword, finds all texts containig it and adds 
+        /// a connection to database between seachword and text.
+        /// </summary>
+        /// <param name="searchword">
+        /// Provided searchword
+        /// </param>
+        /// <returns>
+        /// boolean with value depending if indexing was succesfull
+        /// </returns>
         public bool IndexSearchWord(SearchWords searchword)
         {
             try
             {
                 using (var db = new SearcherContext())
                 {
+                    //List of texts containing searchword
                     List<Texts> texts = db.Texts.Where(t => t.text.Contains(searchword.SearchWord))
                         .Include(t => t.SearchWords)
                         .ToList();
                     foreach (var text in texts)
                     {
                         bool update = true;
+                        //For each loop checks if there is already such searchword for this text
                         foreach (var searchWordInText in text.SearchWords)
                         {
                             if (searchWordInText.SearchWord.Contains(searchword.SearchWord))
@@ -64,9 +87,10 @@ namespace WordIndexer.Logic
                                 update = false;
                             }
                         }
-
+                        //If there is no such search word for text, it is indexed
                         if (update)
                         {
+                            //Fiding the actual searchword from table
                             SearchWords existingSearchword =
                                 db.SearchWords.FirstOrDefault(s => s.SearchWord.Equals(searchword.SearchWord));
                             if (existingSearchword != null)

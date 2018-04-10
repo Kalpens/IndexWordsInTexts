@@ -9,6 +9,17 @@ namespace WordIndexer.Logic
 {
     public class Searcher : ISearcher
     {
+
+        /// <summary>
+        /// Searches for texts in db who are linked to searchword with
+        /// equal word as provided parameter
+        /// </summary>
+        /// <param name="searchword">
+        /// provided string with 
+        /// </param>
+        /// <returns>
+        /// List of texts linked to searchwords
+        /// </returns>
         public List<Texts> SearchTextsWithString(string searchword)
         {
             using (var db = new SearcherContext())
@@ -24,6 +35,17 @@ namespace WordIndexer.Logic
 
         }
 
+        /// <summary>
+        /// Searches for texts that are linked to provided parameter
+        /// in database
+        /// </summary>
+        /// <param name="searchwords">
+        /// Provided list of searchwords
+        /// </param>
+        /// <returns>
+        /// Empty list if exception occured or if no results found,
+        /// List with strings sorted descening by occurance of searchwords in text
+        /// </returns>
         public List<string> SearchTextsWithList(List<string> searchwords)
         {
             try
@@ -55,7 +77,7 @@ namespace WordIndexer.Logic
                             }
                         }
                     }
-                    //ascending sorting of values in dictionary
+                    //Descending sorting of values in dictionary
                     var items = from pair in textsWithSearchwordCount
                                 orderby pair.Value descending 
                         select pair;

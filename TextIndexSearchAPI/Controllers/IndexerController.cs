@@ -13,6 +13,16 @@ namespace TextIndexSearchAPI.Controllers
 {
     public class IndexerController : ApiController, IIndexerController
     {
+        /// <summary>
+        /// Calls Indexer class IndexSearchWord method, to index searchword
+        /// </summary>
+        /// <param name="searchWord">
+        /// Provided searchword
+        /// </param>
+        /// <returns>
+        /// HttopActionResult with boolean, if succesfull call, sends OK with true, 
+        /// if failed call, sends BadRequest with false
+        /// </returns>
         [HttpPost]
         public Task<IHttpActionResult> IndexSearchWord(SearchWords searchWord)
         {
@@ -31,6 +41,16 @@ namespace TextIndexSearchAPI.Controllers
 
             });
         }
+        /// <summary>
+        /// Calls Indexer class IndexText method, to index text
+        /// </summary>
+        /// <param name="text">
+        /// Provided text
+        /// </param>
+        /// <returns>
+        /// HttopActionResult with boolean, if succesfull call, sends OK with true, 
+        /// if failed call, sends BadRequest with false
+        /// </returns>
         [HttpPost]
         public Task<IHttpActionResult> IndexText(Texts text)
         {
