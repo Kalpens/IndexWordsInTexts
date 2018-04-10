@@ -27,7 +27,18 @@ namespace TextIndexSearchAPI.Controllers
         [HttpPost]
         public Task<IHttpActionResult> SearchTextsWithList(List<SearchWords> searchWords)
         {
-            throw new NotImplementedException();
+            return Task.Run(() =>
+            {
+                var logic = new Searcher();
+                var stringList = new List<string>();
+                foreach (var searchWord in searchWords)
+                {
+                    stringList.Add(searchWord.SearchWord);
+                }
+                var strings = logic.SearchTextsWithList(stringList);
+
+                return (IHttpActionResult)Ok(strings);
+            });
         }
     }
 }
