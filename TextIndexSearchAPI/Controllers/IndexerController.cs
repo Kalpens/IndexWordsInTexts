@@ -20,7 +20,14 @@ namespace TextIndexSearchAPI.Controllers
             {
                 var logic = new Indexer();
                 bool result = logic.IndexSearchWord(searchWord);
-                return (IHttpActionResult)Ok(result);
+                if (result)
+                {
+                    return (IHttpActionResult) Ok(result);
+                }
+                else
+                {
+                    return BadRequest(result.ToString());
+                }
 
             });
         }
@@ -31,7 +38,14 @@ namespace TextIndexSearchAPI.Controllers
             {
                 var logic = new Indexer();
                 bool result = logic.IndexText(text);
-                return (IHttpActionResult)Ok(result);
+                if (result)
+                {
+                    return (IHttpActionResult)Ok(result);
+                }
+                else
+                {
+                    return BadRequest(result.ToString());
+                }
 
             });
         }
